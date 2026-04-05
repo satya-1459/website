@@ -1,2 +1,0 @@
-# website
-Satya Nimmagadda - website
