@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Satya Sri Rajiteswari Nimmagadda</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --green:  #1a6b4a;
+      --green-light: #e8f4ef;
+      --green-mid: #2e8b62;
+      --gold:   #c09a3f;
+      --ink:    #1a1a1a;
+      --muted:  #5a5a5a;
+      --rule:   #d4ddd9;
+      --bg:     #f7f8f6;
+      --white:  #ffffff;
+      --card:   #ffffff;
+      --nav-w:  240px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: var(--nav-w);
+      height: 100vh;
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .nav-brand {
+      padding: 32px 24px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .nav-brand h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.15rem;
+      color: #fff;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+    .nav-brand p {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 16px 0;
+      flex: 1;
+    }
+    nav ul li a {
+      display: block;
+      padding: 10px 24px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.83rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: all 0.2s;
+      border-left: 3px solid transparent;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+      border-left-color: var(--gold);
+    }
+
+    /* ── EDITABLE HINT ── */
+    /* 
+      ════════════════════════════════════════════
+      HOW TO EDIT EACH SECTION
+      ════════════════════════════════════════════
+      Each section below has clear <!-- ADD NEW ... HERE --> comments.
+      Just copy one of the existing blocks and paste it above the comment.
+      ════════════════════════════════════════════
+    */
+
+    .nav-contact {
+      padding: 20px 24px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .nav-contact p {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+    .nav-contact a { color: rgba(255,255,255,0.75); text-decoration: none; }
+
+    /* ── MAIN ── */
+    main {
+      margin-left: var(--nav-w);
+      flex: 1;
+      padding: 48px 56px 80px;
+      max-width: calc(100% - var(--nav-w));
+    }
+
+    section { margin-bottom: 56px; scroll-margin-top: 32px; }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: start;
+      padding-bottom: 40px;
+      border-bottom: 2px solid var(--rule);
+    }
+    .hero-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .hero-title {
+      font-size: 0.9rem;
+      color: var(--green);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+    .hero-bio {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 600px;
+    }
+    .hero-bio strong { color: var(--ink); }
+
+    .hero-meta {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .hero-meta a, .hero-meta span {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-meta a:hover { color: var(--green); }
+    .hero-meta .icon {
+      width: 16px; height: 16px;
+      fill: var(--green);
+      flex-shrink: 0;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1.5px solid var(--green);
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--green);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+    .badge:hover { background: var(--green); color: #fff; }
+
+    .hero-photo {
+      width: 170px;
+      height: 170px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 4px solid var(--white);
+      box-shadow: 0 4px 24px rgba(26,107,74,0.18);
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-photo-placeholder {
+      width: 170px;
+      height: 170px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--green-light), #c8e6da);
+      border: 4px solid var(--white);
+      box-shadow: 0 4px 24px rgba(26,107,74,0.18);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-align: center;
+      gap: 8px;
+    }
+
+    /* ── SECTION TITLES ── */
+    h2.section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-bottom: 2px solid var(--green);
+      padding-bottom: 8px;
+      margin-bottom: 28px;
+      display: inline-block;
+    }
+
+    h3.year {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin: 24px 0 14px;
+    }
+    h3.year:first-child { margin-top: 0; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .card-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .card-sub {
+      font-size: 0.83rem;
+      color: var(--green-mid);
+      font-weight: 500;
+      margin-top: 3px;
+    }
+    .card-date {
+      font-size: 0.77rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .card-body {
+      margin-top: 12px;
+    }
+    .card-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card-body ul li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+    .card-body ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+    }
+    .tag {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .gpa {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-left: 6px;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .pub:last-child { border-bottom: none; }
+    .pub-venue {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .pub-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+    .pub-authors strong { color: var(--ink); }
+    .pub-status {
+      font-size: 0.77rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* ── SKILLS GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .skill-group {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .skill-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .skill-tag {
+      background: var(--green-light);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    /* ── CERT LIST ── */
+    .cert-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .cert-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.87rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .cert-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    /* ── PRESENTATIONS ── */
+    .pres-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .pres-item:last-child { border-bottom: none; }
+    .pres-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .pres-type {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 3px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .pres-type--talk   { background: var(--green); }
+    .pres-type--poster { background: var(--gold); }
+    .pres-type--attend { background: #4a6fa5; }
+    .pres-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .pres-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .pres-venue {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* ── SERVICE ── */
+    .service-item {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .service-item:last-child { border-bottom: none; }
+    .service-item strong { color: var(--ink); display: block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { width: 200px; }
+      main { margin-left: 200px; padding: 32px 28px 60px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo-placeholder { display: none; }
+    }
+    @media (max-width: 640px) {
+      nav { position: relative; width: 100%; height: auto; }
+      body { flex-direction: column; }
+      main { margin-left: 0; max-width: 100%; padding: 24px 20px 48px; }
+    }
+
+    /* ── ACCENT LINE ── */
+    .accent-bar {
+      width: 40px; height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR NAV -->
+<nav>
+  <div class="nav-brand">
+    <h1>Satya Sri Rajiteswari Nimmagadda</h1>
+    <p>PhD Student · Data Science</p>
+  </div>
+  <ul>
+    <li><a href="#about" class="active">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#service">Journal Service</a></li>
+    <li><a href="#presentations">Presentations</a></li>
+  </ul>
+  <div class="nav-contact">
+    <p>
+      Marshall University<br>
+      Huntington, WV<br><br>
+      <a href="mailto:satya_nimmagadda@outlook.com">satya_nimmagadda@outlook.com</a><br>
+      <a href="tel:+14092398774">(409) 239-8774</a>
+    </p>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <!-- HERO / ABOUT -->
+  <section id="about">
+    <div class="hero">
+      <div>
+        <div class="accent-bar"></div>
+        <h1 class="hero-name">Satya Sri Rajiteswari<br>Nimmagadda</h1>
+        <p class="hero-title">PhD Student in Data Science · Marshall University</p>
+        <p class="hero-bio">
+          I am a <strong>PhD student in Data Science</strong> at Marshall University, Huntington, WV,
+          advised by <strong>Dr. Ananya Jana</strong>. My research spans large language models,
+          vision-language models, AI-based image synthesis, and structured information extraction
+          from scientific text. Before my PhD, I earned an MS in Computer Science (GPA 3.9) from
+          Marshall University and bring over 6 years of industry experience in site reliability
+          engineering and IT infrastructure.
+        </p>
+        <div class="hero-meta">
+          <span>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:satya_nimmagadda@outlook.com">satya_nimmagadda@outlook.com</a>
+          </span>
+          <span>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Marshall University, Huntington, WV
+          </span>
+          <span>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <a href="https://linkedin.com/in/satya-nimmagadda" target="_blank">linkedin.com/in/satya-nimmagadda</a>
+          </span>
+        </div>
+        <div class="hero-links">
+          <a class="badge" href="https://linkedin.com/in/satya-nimmagadda" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            LinkedIn
+          </a>
+          <a class="badge" href="mailto:satya_nimmagadda@outlook.com">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1a6b4a" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span style="font-size:0.65rem;color:#1a6b4a;opacity:0.7">Add Photo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EDUCATION SECTION
+       ─────────────────
+       To add a new degree, copy one <div class="card"> block and paste
+       it above the "ADD NEW EDUCATION ENTRY HERE" comment.
+
+       Template to copy:
+       ─────────────────
+       <div class="card">
+         <div class="card-header">
+           <div>
+             <div class="card-title">Degree Name <span class="gpa">GPA X.X/4.0</span></div>
+             <div class="card-sub">University Name, City, State</div>
+             <div style="margin-top:6px;font-size:0.83rem;color:var(--muted)">Advisor: Name (optional)</div>
+           </div>
+           <div class="card-date">Month YEAR – Month YEAR</div>
+         </div>
+       </div>
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">PhD in Data Science <span class="tag">Current</span></div>
+          <div class="card-sub">Marshall University, Huntington, WV</div>
+          <div style="margin-top:6px;font-size:0.83rem;color:var(--muted)">Advisor: Dr. Ananya Jana</div>
+        </div>
+        <div class="card-date">Fall 2025 – Present</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Master of Science — Computer Science <span class="gpa">GPA 3.9/4.0</span></div>
+          <div class="card-sub">Marshall University, Huntington, WV</div>
+        </div>
+        <div class="card-date">Aug 2023 – May 2025</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">B.Tech — Electronics &amp; Communications Engineering <span class="gpa">GPA 3.5/4.0</span></div>
+          <div class="card-sub">Jawaharlal Nehru Technological University, Kakinada, India</div>
+        </div>
+        <div class="card-date">Sep 2012 – May 2016</div>
+      </div>
+    </div>
+
+    <!-- ════ ADD NEW EDUCATION ENTRY HERE ════ -->
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPERIENCE SECTION
+       ──────────────────
+       To add a new role, copy one <div class="card"> block and paste
+       it above the matching "ADD NEW ... ENTRY HERE" comment.
+
+       Template to copy:
+       ─────────────────
+       <div class="card">
+         <div class="card-header">
+           <div>
+             <div class="card-title">Job Title</div>
+             <div class="card-sub">Organization — City, Country</div>
+           </div>
+           <div class="card-date">Month YEAR – Month YEAR</div>
+         </div>
+         <div class="card-body">
+           <ul>
+             <li>Bullet point one describing what you did.</li>
+             <li>Bullet point two with impact or result.</li>
+           </ul>
+         </div>
+       </div>
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+
+    <h3 class="year">Academic</h3>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Graduate Assistant — IT Technical Support</div>
+          <div class="card-sub">Marshall University, Huntington, WV</div>
+        </div>
+        <div class="card-date">Jan 2025 – May 2025</div>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Provided real-time technical support during classes; automated support tasks using PowerShell, reducing resolution time by 25%.</li>
+          <li>Maintained classroom technology including T1V systems, audio equipment, and virtual meeting platforms.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Graduate Assistant — Faculty Support</div>
+          <div class="card-sub">Marshall University, Huntington, WV</div>
+        </div>
+        <div class="card-date">Aug 2023 – Dec 2024</div>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Supported faculty and students with research data needs using Tableau, Excel, and statistical tools.</li>
+          <li>Contributed to Azure cloud-hosted research applications and infrastructure monitoring.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ════ ADD NEW ACADEMIC EXPERIENCE ENTRY HERE ════ -->
+
+    <h3 class="year">Industry</h3>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Site Reliability Engineer</div>
+          <div class="card-sub">Artech Infosystems (Client: Ford Motor Pvt. Ltd.) — Chennai, India</div>
+        </div>
+        <div class="card-date">May 2021 – Apr 2023</div>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Orchestrated end-to-end delivery of server and storage infrastructure across South America, Europe, and Asia Pacific.</li>
+          <li>Streamlined OS automation workflows, reducing manual workload by 30%.</li>
+          <li>Built dashboards to track infrastructure deployments and incident response metrics.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">IT Global Infrastructure Engineer</div>
+          <div class="card-sub">Artech Infosystems (Client: Ford Motor Pvt. Ltd.) — Chennai, India</div>
+        </div>
+        <div class="card-date">Mar 2019 – May 2021</div>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Designed and implemented automated server backup and storage solutions, reducing system downtime by 25%.</li>
+          <li>Maintained detailed runbooks supporting CI/CD workflows and analyzed customer requirements for scalable infrastructure.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">L1 Analyst — Data Center Monitoring</div>
+          <div class="card-sub">HCL Technologies (Project: Crawford &amp; Company) — Chennai, India</div>
+        </div>
+        <div class="card-date">Jul 2016 – Jan 2019</div>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Monitored server and network health using real-time dashboards; ensured SLA compliance.</li>
+          <li>Implemented automation solutions improving scheduler efficiency; hands-on with AWS EC2, IAM, S3, and VPCs.</li>
+          <li>Supported change management and incident response, including 24/7 on-call rotation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ════ ADD NEW INDUSTRY EXPERIENCE ENTRY HERE ════ -->
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PUBLICATIONS SECTION
+       ────────────────────
+       To add a new publication, copy one <div class="pub"> block and
+       paste it below the matching year heading, above the "ADD NEW ... HERE" comment.
+
+       Template to copy:
+       ─────────────────
+       <div class="pub">
+         <span class="pub-venue">VENUE ACRONYM YEAR</span>
+         <div class="pub-title">Full Paper Title Goes Here</div>
+         <div class="pub-authors">Author One, <strong>Satya Nimmagadda</strong>, Author Three, ...</div>
+         <div class="pub-status">Accepted / Published / Under Review</div>
+       </div>
+
+       For journal manuscripts use:  <span class="pub-venue" style="background:var(--gold);">Journal</span>
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="publications">
+    <h2 class="section-title">Research &amp; Publications</h2>
+
+    <h3 class="year">2026</h3>
+
+    <div class="pub">
+      <span class="pub-venue">IEEE ICSC 2026</span>
+      <div class="pub-title">Generating Hierarchical JSON Representations of Scientific Sentences Using LLMs</div>
+      <div class="pub-authors"><strong>Satya Nimmagadda</strong>, Ethan Young, Niladri Sengupta, Ananya Jana, Aniruddha Maiti</div>
+      <div class="pub-status">Accepted</div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-venue">IEEE ICSC 2026</span>
+      <div class="pub-title">Prompt-Based Caption Generation for Single-Tooth Dental Images Using Vision-Language Models</div>
+      <div class="pub-authors">Anastasiia Sukhanova, Aiden Taylor, Julian Myers, Zichun Wang, Kartha Veerya Jammuladinne, <strong>Satya Nimmagadda</strong>, Aniruddha Maiti, Ananya Jana</div>
+      <div class="pub-status">Accepted</div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-venue">ASEE NCS 2026</span>
+      <div class="pub-title">Text to Automata Diagrams: Comparing TikZ Code Generation with Direct Image Synthesis</div>
+      <div class="pub-authors">Ethan Young, Zichun Wang, Aiden Taylor, Chance Jewell, Julian Myers, <strong>Satya Sri Rajiteswari Nimmagadda</strong>, Anthony White, Aniruddha Maiti, Ananya Jana</div>
+      <div class="pub-status">Accepted</div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-venue">ASEE NCS 2026</span>
+      <div class="pub-title">Brushstroke: Capturing Artistic Nuance Through Domain Adaptive Diffusion</div>
+      <div class="pub-authors">Baylee Senator, <strong>Satya Nimmagadda</strong>, Anastasiia Sukhanova, Ananya Jana</div>
+      <div class="pub-status">Accepted · <em>Presented at ASEE NCS 2026</em></div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-venue">AIR-RES 2026</span>
+      <div class="pub-title">AI-based Super-Resolution of Single Tooth RGB Images</div>
+      <div class="pub-authors">Aiden Taylor, <strong>Satya Nimmagadda</strong>, Ananya Jana</div>
+      <div class="pub-status">Accepted</div>
+    </div>
+
+    <!-- ════ ADD NEW 2026 PUBLICATION HERE ════ -->
+
+    <h3 class="year">2025</h3>
+
+    <div class="pub">
+      <span class="pub-venue">LLM 2025</span>
+      <div class="pub-title">Convergence of Outputs When Two Large Language Models Interact in a Multi-Agentic Setup</div>
+      <div class="pub-authors">Aniruddha Maiti, <strong>Satya Nimmagadda</strong>, Kartha Veerya Jammuladinne, Niladri Sengupta, Ananya Jana</div>
+      <div class="pub-status">Published</div>
+    </div>
+
+    <!-- ════ ADD NEW 2025 PUBLICATION HERE ════ -->
+
+    <h3 class="year">Manuscripts Under Preparation</h3>
+
+    <div class="pub">
+      <span class="pub-venue" style="background:var(--gold);">Journal</span>
+      <div class="pub-title">On the Information Retention Capabilities of Hierarchical JSON Representations of Scientific Texts</div>
+      <div class="pub-authors"><strong>Satya S R Nimmagadda</strong>, Ethan Young, Niladri Sengupta, Ananya Jana, Aniruddha Maiti</div>
+      <div class="pub-status">Journal manuscript under preparation</div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-venue" style="background:var(--gold);">Journal</span>
+      <div class="pub-title">Structured Captioning of Single-Tooth Images Using Vision-Language Models: Zero-Shot Evaluation and Fine-Tuning</div>
+      <div class="pub-authors"><strong>Satya S R Nimmagadda</strong>, Anastasiia Sukhanova, Aiden Taylor, Julian Myers, Zichun Wang, Kartha Veerya Jammuladinne, Aniruddha Maiti, Ananya Jana</div>
+      <div class="pub-status">Journal manuscript under preparation</div>
+    </div>
+
+    <!-- ════ ADD NEW MANUSCRIPT HERE ════ -->
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACADEMIC PROJECTS SECTION
+       ──────────────────────────
+       To add a new project, copy one <div class="card"> block and paste
+       it above the "ADD NEW PROJECT HERE" comment.
+
+       Template to copy:
+       ─────────────────
+       <div class="card">
+         <div class="card-title">Project Title</div>
+         <div class="card-body" style="margin-top:8px;">
+           <p style="font-size:0.85rem;color:var(--muted);line-height:1.65">
+             Short description of what you built, tools used, and outcome.
+           </p>
+         </div>
+       </div>
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="projects">
+    <h2 class="section-title">Academic Projects</h2>
+
+    <div class="card">
+      <div class="card-title">Lightweight CNN for Distracted Driver Detection</div>
+      <div class="card-body" style="margin-top:8px;">
+        <p style="font-size:0.85rem;color:var(--muted);line-height:1.65">Designed and trained a lightweight CNN achieving 96% accuracy on 14K+ images, deployable on edge devices (Raspberry Pi).</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">AI-Based Biomedical Image Synthesis</div>
+      <div class="card-body" style="margin-top:8px;">
+        <p style="font-size:0.85rem;color:var(--muted);line-height:1.65">Generated synthetic biomedical images using stable diffusion models (PyTorch, GPU) to augment limited medical datasets.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Smart Personal Finance Advisor</div>
+      <div class="card-body" style="margin-top:8px;">
+        <p style="font-size:0.85rem;color:var(--muted);line-height:1.65">Developed an Azure-hosted ML tool providing personalized financial recommendations from user spending patterns.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Sentiment Analysis Model</div>
+      <div class="card-body" style="margin-top:8px;">
+        <p style="font-size:0.85rem;color:var(--muted);line-height:1.65">Built a Python-based NLP pipeline for dataset classification and visualization using transformer-based architectures.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Deep Learning-Based Human Mesh Recovery from 2D Images</div>
+      <div class="card-body" style="margin-top:8px;">
+        <p style="font-size:0.85rem;color:var(--muted);line-height:1.65">Explored SMPL-T baseline pose estimation with kinematic priors from single monocular images with textual descriptions.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Strategic Growth Plan for Small Business</div>
+      <div class="card-body" style="margin-top:8px;">
+        <p style="font-size:0.85rem;color:var(--muted);line-height:1.65">Constructed a data-driven business roadmap using statistical and BI tools to guide resource allocation.</p>
+      </div>
+    </div>
+
+    <!-- ════ ADD NEW PROJECT HERE ════ -->
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TECHNICAL SKILLS SECTION
+       ─────────────────────────
+       To add a new skill TAG inside an existing group:
+         Add a new <span class="skill-tag">Tool Name</span> inside the <div class="skill-tags">.
+
+       To add a NEW skill GROUP, copy one <div class="skill-group"> block
+       and paste it above the "ADD NEW SKILL GROUP HERE" comment.
+
+       Template for a new group:
+       ─────────────────────────
+       <div class="skill-group">
+         <div class="skill-group-title">Group Name</div>
+         <div class="skill-tags">
+           <span class="skill-tag">Tool 1</span>
+           <span class="skill-tag">Tool 2</span>
+         </div>
+       </div>
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Programming &amp; Scripting</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PowerShell</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">HTML/CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud Platforms</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">AWS (S3, EC2, VPC, IAM)</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">PCF</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">DevOps &amp; CI/CD</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Azure DevOps</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">Git / GitHub</span>
+          <span class="skill-tag">CI/CD Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Monitoring &amp; ITSM</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Splunk</span>
+          <span class="skill-tag">DataDog</span>
+          <span class="skill-tag">ServiceNow</span>
+          <span class="skill-tag">SCOM</span>
+          <span class="skill-tag">AWS Monitor</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">BI &amp; Analytics</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Alteryx</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">matplotlib</span>
+          <span class="skill-tag">seaborn</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Databases &amp; Other</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">VMware vSphere</span>
+          <span class="skill-tag">Agile/Scrum</span>
+          <span class="skill-tag">JIRA</span>
+        </div>
+      </div>
+
+      <!-- ════ ADD NEW SKILL GROUP HERE ════ -->
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CERTIFICATIONS SECTION
+       ───────────────────────
+       To add a new certification, copy one <li> block and paste it
+       above the "ADD NEW CERTIFICATION HERE" comment.
+
+       Template to copy:
+       ─────────────────
+       <li>
+         <span class="cert-dot"></span>
+         <span><strong>Certification Name</strong> — Credential ID: XXXX (optional)</span>
+       </li>
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="certifications">
+    <h2 class="section-title">Certifications</h2>
+    <ul class="cert-list">
+      <li><span class="cert-dot"></span><span><strong>Microsoft Certified: Azure AI Fundamentals</strong> — Credential ID: 7C8ADB9FAB250FCC</span></li>
+      <li><span class="cert-dot"></span><span><strong>Microsoft Learning Path: Azure Administrator (AZ-104)</strong></span></li>
+      <li><span class="cert-dot"></span><span><strong>Forage Accenture: Data Analytics &amp; Visualization Job Simulation</strong></span></li>
+      <li><span class="cert-dot"></span><span><strong>Corporate Trainings (Ford &amp; HCL):</strong> Agile, PCF, AWS, Cybersecurity</span></li>
+
+      <!-- ════ ADD NEW CERTIFICATION HERE ════ -->
+
+    </ul>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       JOURNAL SERVICE SECTION
+       ───────────────────────
+       To add a new service entry, copy one <div class="service-item"> block
+       and paste it above the "ADD NEW SERVICE ENTRY HERE" comment.
+
+       Template to copy:
+       ─────────────────
+       <div class="service-item">
+         <strong>Role (e.g. Journal Reviewer / Conference Reviewer)</strong>
+         Venue name and year (e.g. IEEE Access 2027)
+       </div>
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="service">
+    <h2 class="section-title">Journal Service</h2>
+
+    <!-- ── Journal Reviewer entries ── -->
+    <div class="service-item">
+      <strong>Journal Reviewer</strong>
+      IEEE Access (2026)
+    </div>
+
+    <!-- ── Conference Reviewer entries ── -->
+    <!-- Example: copy and paste the block below to add a conference reviewer role
+    <div class="service-item">
+      <strong>Conference Reviewer</strong>
+      CONFERENCE NAME YEAR
+    </div>
+    -->
+
+    <!-- ── Committee / Other Service entries ── -->
+    <!-- Example: copy and paste the block below to add committee service
+    <div class="service-item">
+      <strong>Committee Member</strong>
+      Committee name and organization, YEAR
+    </div>
+    -->
+
+    <!-- ════ ADD NEW SERVICE ENTRY HERE ════ -->
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       POSTER & CONFERENCE PRESENTATIONS SECTION
+       ──────────────────────────────────────────
+       There are THREE subsections, each clearly marked:
+         1. Conference Presentations  (talk given at a conference)
+         2. Conference Attendance     (attended but did not present)
+         3. Poster Presentations      (poster shown at a symposium)
+
+       To add a new entry in any subsection, copy one <div class="pres-item"> block
+       and paste it above the matching "ADD NEW ... HERE" comment.
+
+       Template to copy:
+       ─────────────────
+       <div class="pres-item">
+         <div class="pres-meta">
+           <span class="pres-type pres-type--talk">Presentation</span>  ← change label & class as needed
+           <span class="pres-date">Month YEAR</span>
+         </div>
+         <div class="pres-title">"Your Paper / Poster Title Here"</div>
+         <div class="pres-venue">Conference / Symposium Name, Location</div>
+       </div>
+
+       CSS class options for the badge:
+         pres-type--talk     → dark green  (for talks / presentations)
+         pres-type--poster   → gold        (for poster presentations)
+         pres-type--attend   → slate blue  (for attendance only)
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="presentations">
+    <h2 class="section-title">Poster &amp; Conference Presentations</h2>
+
+    <!-- ─────────────────────────────────────────
+         1. CONFERENCE PRESENTATIONS (talk given)
+         ───────────────────────────────────────── -->
+    <h3 class="year">Conference Presentations</h3>
+
+    <div class="pres-item">
+      <div class="pres-meta">
+        <span class="pres-type pres-type--talk">Presentation</span>
+        <span class="pres-date">2026</span>
+      </div>
+      <div class="pres-title">"Brushstroke: Capturing Artistic Nuance Through Domain Adaptive Diffusion"</div>
+      <div class="pres-venue">ASEE North Central Section Conference 2026</div>
+    </div>
+
+    <!-- ════ ADD NEW CONFERENCE PRESENTATION HERE ════ -->
+
+
+    <!-- ─────────────────────────────────────────
+         2. CONFERENCE ATTENDANCE
+         ───────────────────────────────────────── -->
+    <h3 class="year">Conference Attendance</h3>
+
+    <div class="pres-item">
+      <div class="pres-meta">
+        <span class="pres-type pres-type--attend">Attendance</span>
+        <span class="pres-date">March 10–11, 2026</span>
+      </div>
+      <div class="pres-title">2026 NAIRR Pilot Conference</div>
+      <div class="pres-venue">Arlington, Virginia</div>
+    </div>
+
+    <!-- ════ ADD NEW CONFERENCE ATTENDANCE HERE ════ -->
+
+
+    <!-- ─────────────────────────────────────────
+         3. POSTER PRESENTATIONS
+         ───────────────────────────────────────── -->
+    <h3 class="year">Poster Presentations</h3>
+
+    <div class="pres-item">
+      <div class="pres-meta">
+        <span class="pres-type pres-type--poster">Poster</span>
+        <span class="pres-date">2026</span>
+      </div>
+      <div class="pres-title">Student Research &amp; Creativity Symposium</div>
+      <div class="pres-venue">Marshall University, Huntington, WV</div>
+    </div>
+
+    <div class="pres-item">
+      <div class="pres-meta">
+        <span class="pres-type pres-type--poster">Poster</span>
+        <span class="pres-date">2025</span>
+      </div>
+      <div class="pres-title">Student Research &amp; Creativity Symposium</div>
+      <div class="pres-venue">Marshall University, Huntington, WV</div>
+    </div>
+
+    <!-- ════ ADD NEW POSTER PRESENTATION HERE ════ -->
+
+  </section>
+
+</main>
+
+<script>
+  // Smooth scroll + active nav highlight
+  const links = document.querySelectorAll('nav a[href^="#"]');
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
